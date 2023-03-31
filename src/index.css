@@ -8,3 +8,115 @@
   font-family: "Cosi Azure";
   src: url(./assets/fonts/CosiAzure-Bold.ttf)
 }
+
+:root {
+  --color-dark: #050505;
+  --color-light: #f7f7f7;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: "Michroma", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+}
+.app {
+  position: relative;
+}
+.noise {
+  background-image: url('./assets/images/noise.gif');
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -9999;
+  opacity: 0.07;
+}
+
+/* navbar */
+.link-item {
+  position: relative;
+}
+.link-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-light);
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+.link-item:hover::after{
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+}
+
+.shutter {
+  position: absolute;
+  z-index: 100;
+  font-family: "Cosi Azure", sans-serif;
+  font-size: 10rem;
+}
+
+.shutter-left {
+  top: 0;
+  left: 0;
+}
+
+.shutter-right{
+  bottom: 0;
+  right: 0;
+}
+
+.hero-img {
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.circle-left, .circle-right {
+  width: 1000px;
+  height: 1000px;
+  border: 1px dashed var(--color-light);
+  border-radius: 50%;
+  opacity: 0.2;
+  position: fixed;
+  z-index: -9998;
+  animation: spin 90s linear infinite;
+} 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.circle-left {
+  top: -40%;
+  left: -20%;
+}
+
+.circle-right {
+  bottom: -40%;
+  right: -20%;
+}

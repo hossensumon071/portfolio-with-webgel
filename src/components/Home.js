@@ -1,9 +1,12 @@
-import React from 'react';
+
+import Bio from './Bio';
+import Hero from './Hero';
 
 const Home = () => {
   return (
-    <div>
-      home
+    <div className='home' id='home'>
+      <Hero/>
+      <Bio/>
     </div>
   );
 };
