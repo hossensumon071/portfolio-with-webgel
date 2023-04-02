@@ -1,4 +1,5 @@
 import Project from "./Project";
+import SectionTitle from "./SectionTitle";
 
 const data = [
   {
@@ -29,9 +30,7 @@ const data = [
 const Projects = () => {
   return (
     <div className="container mx-auto mt-40" id="projects">
-      <div className="overflow-hidden">
-        <h2 className="section-title">Projects</h2>
-      </div>
+      <SectionTitle title={"projects"}/>
       <div className="projects-wrapper mt-40 flex flex-col gap-40">
         {
           data.map((project) => (
