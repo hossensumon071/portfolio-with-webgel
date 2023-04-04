@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import SectionTitle from "./SectionTitle";
 import { useHoverEffect } from "../hooks/useHoverEffect";
+import { useProjectLeftRightReveal } from "../hooks/gsap";
 
 const data = {
   img1: "https://res.cloudinary.com/dfbcglud8/image/upload/v1675848716/1675833560175_n0fjtu.jpg",
@@ -9,6 +10,11 @@ const data = {
 
 const About = () => {
   const aboutLeftRef = useRef(null);
+  const aboutRightRef = useRef(null);
+
+  const abouts = [aboutLeftRef, aboutRightRef];
+
+  useProjectLeftRightReveal(abouts)
 
   useHoverEffect(aboutLeftRef, data.img1, data.img2);
   return (
@@ -17,7 +23,7 @@ const About = () => {
 
       <div className="about-wrapper grid grid-cols-2 mt-20 overflow-hidden">
         <div className="about-left" ref={aboutLeftRef}></div>
-        <div className="about-right">
+        <div className="about-right" ref={aboutRightRef}>
           <p>
             I am a MERN stack developer with a strong focus on React, Redux, and
             Tailwind CSS. I specialize in building responsive and user-friendly
