@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,41 @@
 
 @font-face {
   font-family: "Cosi Azure";
-  src: url(./assets/fonts/CosiAzure-Bold.ttf)
+  src: url(./assets/fonts/CosiAzure-Bold.ttf);
 }
 
 :root {
   --color-dark: #050505;
   --color-light: #f7f7f7;
+}
+
+::-webkit-scrollbar {
+  width: 5px
+}
+
+::-webkit-scrollbar-thumb {
+  height: 10%;
+  background-color: rgba(247, 247, 247, 0.5);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-light);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-dark);
+}
+
+::selection {
+  background-color: #22d3ee;
+  color: var(--color-dark);
+}
+
+*,
+*::before,
+*::after {
+  cursor: none;
 }
 
 html,
@@ -31,11 +60,51 @@ body {
   letter-spacing: 2px;
   word-spacing: 3px;
 }
+
+input[type="submit"] {
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+
+.inner-cursor {
+  position: fixed;
+  left: 10px;
+  z-index: 99999;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-light);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transition: width 0.5s height 0.5s;
+}
+
+.inner-cursor.grow {
+  width: 25px;
+  height: 25px;
+  transition: width 0.5s height 0.5s;
+}
+
+.outer-cursor {
+  position: fixed;
+  left: 10px;
+  z-index: 9999;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  border: 1px solid var(--color-light);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: 0.1s;
+}
+
 .app {
   position: relative;
 }
 .noise {
-  background-image: url('./assets/images/noise.gif');
+  background-image: url("./assets/images/noise.gif");
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -63,7 +132,7 @@ body {
   transition: 0.5s;
 }
 
-.link-item:hover::after{
+.link-item:hover::after {
   width: 100%;
 }
 
@@ -83,19 +152,21 @@ body {
   left: 0;
 }
 
-.shutter-right{
+.shutter-right {
   bottom: 0;
   right: 0;
 }
 
-.hero-img, 
-.project-right {
+.hero-img,
+.project-right,
+.about-left {
   width: 500px;
   height: 500px;
   overflow: hidden;
 }
 
-.circle-left, .circle-right {
+.circle-left,
+.circle-right {
   width: 1000px;
   height: 1000px;
   border: 1px dashed var(--color-light);
@@ -104,13 +175,12 @@ body {
   position: fixed;
   z-index: -9998;
   animation: spin 90s linear infinite;
-} 
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
-
 
 .circle-left {
   top: -40%;
@@ -128,12 +198,12 @@ body {
   line-height: 1;
 }
 
-.skill-item{
+.skill-item {
   position: relative;
 }
 
 .skill-item::before,
-.skill-item::after{
+.skill-item::after {
   content: "";
   position: absolute;
   height: 1px;
@@ -142,18 +212,18 @@ body {
   background-color: var(--color-light);
 }
 
-.skill-item::before{
+.skill-item::before {
   width: 100%;
   opacity: 0.2;
 }
 
-.skill-item::after{
+.skill-item::after {
   width: 0;
   background-color: #22d3ee;
   transition: 0.5s;
 }
 
-.skill-item:hover::after{
+.skill-item:hover::after {
   width: 100%;
 }
 

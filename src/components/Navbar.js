@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-const Navbar = () => {
+const Navbar = ({footerNav}) => {
   return (
-    <nav className="container flex justify-between mx-auto mt-20">
+    <nav className={`container flex justify-between mx-auto ${footerNav ? "mt-40" : "mt-20"}`}>
       <div>
         <HashLink smooth to="#home" className="link-item">
-          Rebecca Parker
+          {footerNav ? "Go to Top": "Sumon Hossen"}
         </HashLink>
       </div>
       <ul className="links flex gap-12">
